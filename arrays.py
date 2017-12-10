@@ -64,6 +64,7 @@ def check_palindrome(string1):
     fw_index = 0
     bw_index = len(string1)
     string1 = string1.lower()
+    string1 = string1.replace(" ,.?!",)
 
     for char in string1:
         if char == " ":
