@@ -40,3 +40,20 @@ def check_string_permu(String1, String2):
         return True
     else:
         return False
+
+#urlify a string. extra spaces present in input string
+def urlify(String1, length):
+    char_space = " "
+    char_url = "%20"
+    url_string = ""
+    for i in range(0,len(String1)):
+        if String1[i] == char_space:
+            if len(url_string) == 0:
+                url_string = String1[:i] + char_url
+            else:
+                url_string = url_string + char_url
+        else:
+            url_string = url_string + String1[i]
+        if len(url_string) == length:
+            break
+    return url_string
