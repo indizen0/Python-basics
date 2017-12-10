@@ -118,3 +118,16 @@ def check_changes(string1, string2):
     else:
         return True
 
+# String compress function
+def string_compress(string1):
+    string_dic = {}
+    char_count = 0
+    for char in string1:
+        if char in string_dic:
+            string_dic[char] = string_dic[char] + 1
+        else:
+            string_dic[char] = 1
+    out_string = ""
+    for key,value in string_dic.items():
+        out_string = out_string + key + str(value)
+    return out_string
