@@ -57,3 +57,27 @@ def urlify(String1, length):
         if len(url_string) == length:
             break
     return url_string
+
+#check if string is a palindrome
+def check_palindrome(string1):
+    flag = True
+    fw_index = 0
+    bw_index = len(string1)
+    string1 = string1.lower()
+
+    for char in string1:
+        if char == " ":
+            fw_index = fw_index +1
+            continue
+        while string1[bw_index-1] == " ":
+            bw_index = bw_index - 1
+
+        if char == string1[bw_index-1]:
+            fw_index = fw_index+1
+            bw_index = bw_index-1
+        else:
+            flag = False
+            break
+        if fw_index >= bw_index:
+            break
+    return flag
