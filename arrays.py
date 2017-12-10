@@ -82,3 +82,39 @@ def check_palindrome(string1):
         if fw_index >= bw_index:
             break
     return flag
+
+#Check if two strings are one edit away
+def check_edit(string1, string2):
+    flag = True
+    diff_len = len(string1) - len(string2)
+    if diff_len == 0:
+        changes = 0
+        for i in range(len(string1)):
+            if string1[i] != string2[i]:
+                changes = changes+1
+            if changes > 1:
+                flag = False
+                break
+    elif diff_len ==1:
+        flag = check_changes(string1,string2)
+    elif diff_len ==-1:
+        flag = check_changes(string2,string1)
+    else:
+        flag = False
+    return flag
+
+def check_changes(string1, string2):
+    index = 0
+    changes = 0
+    for char in string1:
+        if char == string2[index]:
+            index = index +1
+        else:
+            changes = changes +1
+        if changes > 1 or index>=len(string2):
+            break
+    if changes > 1:
+        return False
+    else:
+        return True
+
